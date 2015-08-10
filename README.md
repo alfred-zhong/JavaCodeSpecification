@@ -105,22 +105,28 @@ find方法在业务层尽量表达业务含义，比如 findInvalidMedicalCard()
 
 全大写用下划线分割，如
 
-	public static find String ORDER_PAID_EVENT = "ORDER_PAID_EVENT";
+```java
+public static find String ORDER_PAID_EVENT = "ORDER_PAID_EVENT";
+```
 
 ####1.5.2 枚举
 
 全大写，用下划线分割，如
 
-    public enum Events {
-    	ORDER_PAID,
-    	ORDER_CREATED
-    }
+```java
+public enum Events {
+    ORDER_PAID,
+    ORDER_CREATED
+}
+```
 
 ####1.5.3 其他
 
 首字母小写，骆驼法则，如：
 
-	public String orderName;
+```java
+public String orderName;
+```
 
 ###1.6 局部变量名
 
@@ -205,45 +211,57 @@ public class TestStyle extends SomeClass implements AppleInter, BananaInter {
 
 不能这样：
 
-    if ( a > b ) {
-    	//do something here
-    };
+```java
+if ( a > b ) {
+    //do something here
+};
+```
 
 #####2.6.2.2 二元三元运算符两边用一个空格隔开
 
 如下：
 
-    a + b = c;
-    b - d = e;
-    return a == b ? 1 : 0;
+```java
+a + b = c;
+b - d = e;
+return a == b ? 1 : 0;
+```
 
 不能如下：
 
-    a+b=c;
-    b-d=e;
-    return a==b?1:0;
+```java
+a+b=c;
+b-d=e;
+return a==b?1:0;
+```
 
 #####2.6.2.3 逗号语句后如不换行，紧跟一个空格
 
 如下：
 
-	call(a, b, c);
+```java
+call(a, b, c);
+```
 
 不能如下：
 
-	call(a,b,c);
+```java
+call(a,b,c);
+```
 
 ####2.6.3 空行的使用
 
 空行可以表达代码在语义上的分割，注释的作用范围，等等。将类似操作，或一组操作放在一起不用空行隔开，而用空行隔开不同组的代码， 如图：
 
-    order = orderDao.findOrderById(id);
-    //update properties
-    order.setUserName(userName);
-    order.setPrice(456);
-    order.setStatus(PAID);
-    orderService.updateTotalAmount(order);
-    session.saveOrUpdate(order);
+```java
+order = orderDao.findOrderById(id);
+//update properties
+order.setUserName(userName);
+order.setPrice(456);
+order.setStatus(PAID);
+orderService.updateTotalAmount(order);
+session.saveOrUpdate(order);
+```
 
 上例中的空行，使注释的作用域很明显.
 
@@ -268,20 +286,22 @@ public class TestStyle extends SomeClass implements AppleInter, BananaInter {
 
 表明类、域和方法等的意义和用法等的注释，要以javadoc的方式来写。Java Doc是个类的使用者来看的，主要介绍 是什么，怎么用等信息。凡是类的使用者需要知道，都要用Java Doc 来写。非Java Doc的注释，往往是个代码的维护者看的，着重告述读者为什么这样写，如何修改，注意什么问题等。 如下：
 
+```java
+/**
+ * This is a class comment
+ */
+public class TestClass {
     /**
-    * This is a class comment
-    */
-    public class TestClass {
-        /**
-        * This is a field comment
-        */
-        public String name;
-        /**
-        * This is a method comment
-        */
-        public void call() {
-        }
+     * This is a field comment
+     */
+    public String name;
+    /**
+     * This is a method comment
+     */
+    public void call() {
     }
+}
+```
 
 ###3.3 块级别注释
 
@@ -300,34 +320,38 @@ public class TestStyle extends SomeClass implements AppleInter, BananaInter {
 包围
 如：
 
-    /*----------start: 订单处理 ------- */
-    //取得dao
-    OrderDao dao = Factory.getDao("OrderDao");
-    /* 查询订单 */
-    Order order = dao.findById(456);
-    //更新订单
-    order.setUserName("uu");
-    order.setPassword("pass");
-    order.setPrice("ddd");
-    orderDao.save(order);
-    /*----------end: 订单处理 ------- */
+```java
+/*----------start: 订单处理 ------- */
+//取得dao
+OrderDao dao = Factory.getDao("OrderDao");
+/* 查询订单 */
+Order order = dao.findById(456);
+//更新订单
+order.setUserName("uu");
+order.setPassword("pass");
+order.setPrice("ddd");
+orderDao.save(order);
+/*----------end: 订单处理 ------- */
+```
 
 ####3.3.4 可以考虑使用大括号来表示注释范围
 
 使用大括号表示注释作用范围的例子：
 
-    /*----------订单处理 ------- */
-    {
-        //取得dao
-        OrderDao dao = Factory.getDao("OrderDao");
-        /* 查询订单 */
-        Order order = dao.findById(456);
-        //更新订单
-        order.setUserName("uu");
-        order.setPassword("pass");
-        order.setPrice("ddd");
-        orderDao.save(order);
-    }
+```java
+/*----------订单处理 ------- */
+{
+//取得dao
+OrderDao dao = Factory.getDao("OrderDao");
+/* 查询订单 */
+Order order = dao.findById(456);
+//更新订单
+order.setUserName("uu");
+order.setPassword("pass");
+order.setPrice("ddd");
+orderDao.save(order);
+}
+```
 
 ###3.4 行内注释
 
@@ -348,20 +372,26 @@ log可以设定级别，可以控制输出到哪里，容易区分是在代码�
 
 看下面的代码：
 
-    if (a > b)
-    	a++;
+```java
+if (a > b)
+    a++;
+```
 
 如果在以后维护的时候，需要在a > b 时，把b++，一步小心就会写成：
 
-    if (a > b)
-        a++;
-        b++;
+```java
+if (a > b)
+    a++;
+    b++;
+```
 
 这样就错了，因为无论a和b是什么关系，b++都会执行。 如果一开始就这样写：
 
-    if (a > b) {
-    	a++;
-    }
+```java
+if (a > b) {
+    a++;
+}
+```
 
 相信没有哪个笨蛋会把b++添加错的。而且，这个大括号使作用范围更明显，尤其是后面那行很长要折行时。
 
@@ -369,37 +399,47 @@ log可以设定级别，可以控制输出到哪里，容易区分是在代码�
 
 在代码中加入 //TODO: ，大部分的ide都会帮你提示，让你知道你还有什么事没有做。比如：
 
-    if (order.isPaid()) {
-    	//TODO: 更新订单
-    }
+```java
+if (order.isPaid()) {
+    //TODO: 更新订单
+}
+```
 
 ###4.5 在需要留空的地方放一个空语句或注释，告述读者，你是故意的
 
 比如：
 
-    if (!exists(order)) {
-    	;
-    }
+```java
+if (!exists(order)) {
+    ;
+}
+```
 
 或：
 
-    if (!exists(order)) {
-    	//nothing to do
-    }
+```java
+if (!exists(order)) {
+    //nothing to do
+}
+```
 
 ###4.6 不要再对boolean值做true false判断
 
 比如：
 
-    if (order.isPaid() == true) {
-    	// Do something here
-    }
+```java
+if (order.isPaid() == true) {
+    // Do something here
+}
+```
 
 不如写成：
 
-    if (order.isPaid()) {
-    	//Do something here
-    }
+```java
+if (order.isPaid()) {
+    //Do something here
+}
+```
 
 后者读起来就很是 if order is paid, .... 要比 if order's isPaid method returns true, … 更容易理解
 
@@ -407,21 +447,23 @@ log可以设定级别，可以控制输出到哪里，容易区分是在代码�
 
 代码嵌套层次达3层以上时，一般人理解起来都会困难。下面的代码是一个简单的例子：
 
-    public void demo(int a, int b, int c) {
-    	if (a > b) {
+```java
+public void demo(int a, int b, int c) {
+    if (a > b) {
+    	if (b > c) {
+    		doJobA();
+    	} else if (b < c) {
+    		doJobB();
+    	} else {
     		if (b > c) {
-    			doJobA();
-    		} else if (b < c) {
-    			doJobB();
-    		} else {
-    			if (b > c) {
-    				if (a < c) {
-    					doJobC();
-    				}
+    			if (a < c) {
+    				doJobC();
     			}
     		}
     	}
     }
+}
+```
 
 减少嵌套的方法有很多：
 
@@ -445,21 +487,23 @@ log可以设定级别，可以控制输出到哪里，容易区分是在代码�
 
 如果利用return 则成为：
 
-    public void demo(int a, int b, int c) {
-    	if (a > b) {
-    		if (b > c) {
-    			doJobA();
-    			return;
-    		}
-    		doJobB();
+```java
+public void demo(int a, int b, int c) {
+    if (a > b) {
+    	if (b > c) {
+    		doJobA();
     		return;
     	}
-    	if (b > c) {
-    		if (a < c) {
-    			doJobC();
-    		}
+    	doJobB();
+    	return;
+    }
+    if (b > c) {
+    	if (a < c) {
+    		doJobC();
     	}
     }
+}
+```
 
 利用子方法，就是将嵌套的程序提取出来放到另外的方法里。
 
@@ -471,76 +515,87 @@ log可以设定级别，可以控制输出到哪里，容易区分是在代码�
 
 比方说如下代码：
 
-    int orderNum= getOrderNum();
-    //do something withou orderNum here
-    call(orderNum);
+```java
+int orderNum= getOrderNum();
+//do something withou orderNum here
+call(orderNum);
+```
 
 上例中的注释处代表了一段和orderNum不相关的代码。orderNum的声明和初始化离被使用的地方相隔了很多行的代码，这样做不好，不如这样：
 
-    //do something withou orderNum here
-    int orderNum= getOrderNum();
-    call(orderNum);
+```java
+//do something withou orderNum here
+int orderNum= getOrderNum();
+call(orderNum);
+```
 
 ###4.10 缩小变量的作用域
 
 能用局部变量的，不要使用实例变量，能用实例变量的，不要使用类变量。变量的生存期越短，以为着它被误用的机会越小，同一时刻程序员要关注的变量的状态越少。实例变量和类变量默认都不是线程安全的，局部变量是线程安全的。比如如下代码：
 
-    public class OrderPayAction{
-    	private Order order;
-    	public void doAction() {
-    		order = orderDao.findOrder();
-    		doJob1();
-    		doJob2();
-    	}
-    	private void doJob1() {
-    		doSomething(order);
-    	}
-    	private void doJob2() {
-    		doOtherThing(order);
-    	}
+```java
+public class OrderPayAction{
+    private Order order;
+    public void doAction() {
+    	order = orderDao.findOrder();
+    	doJob1();
+    	doJob2();
     }
+    private void doJob1() {
+    	doSomething(order);
+    }
+    private void doJob2() {
+    	doOtherThing(order);
+    }
+}
+```
 
 上例中order只不过担当了在方法间传递参数之用，用下面的方法更好：
 
-    public class OrderPayAction{
-    	public void doAction() {
-    		order = orderDao.findOrder();
-    		doJob1(order);
-    		doJob2(order);
-    	}
-    	private void doJob1(Order order) {
-    		doSomething(order);
-    	}
-    	private void doJob2(Order order) {
-    		doOtherThing(order);
-        }
+```java
+public class OrderPayAction{
+    public void doAction() {
+    	order = orderDao.findOrder();
+    	doJob1(order);
+    	doJob2(order);
     }
+    private void doJob1(Order order) {
+    	doSomething(order);
+    }
+    private void doJob2(Order order) {
+    	doOtherThing(order);
+    }
+}
+```
 
 ###4.11 尽量不要用参数来带回方法运算结果
 
 比如：
 
-    public void calculate(Order order) {
-    	int result = 0;
-    	//do lots of computing and store it in the result
-    	order.setResult(result);
-    }
-    public void action() {
-        order = orderDao.findOrder();
-        calculate(order);
-        // do lots of things about order
-    }
+```java
+public void calculate(Order order) {
+    int result = 0;
+    //do lots of computing and store it in the result
+    order.setResult(result);
+}
+public void action() {
+    order = orderDao.findOrder();
+    calculate(order);
+    // do lots of things about order
+}
+```
 
 例子中calculate方法通过传入的order对象来存储结果， 不如如下写：
 
-    public int calculate(Order order) {
-    	int result = 0;
-    	//do lots of computing and store it in the result
-    	return result;
-    }
-    public void action() {
-        order = orderDao.findOrder();
-        order.setResult(calculate(order));
-        // do lots of things about order
-    }
-
+```java
+public int calculate(Order order) {
+    int result = 0;
+    //do lots of computing and store it in the result
+    return result;
+}
+public void action() {
+    order = orderDao.findOrder();
+    order.setResult(calculate(order));
+    // do lots of things about order
+}
+```
