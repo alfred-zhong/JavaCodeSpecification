@@ -311,11 +311,15 @@ public class TestClass {
 
 ####3.3.3 较长的代码块要用
 
-	/*------ start: ------*/
+```java
+/*------ start: ------*/
+```
 
 和
 
-	/*-------- end: -------*/
+```java
+/*-------- end: -------*/
+```
 
 包围
 如：
@@ -341,15 +345,15 @@ orderDao.save(order);
 ```java
 /*----------订单处理 ------- */
 {
-//取得dao
-OrderDao dao = Factory.getDao("OrderDao");
-/* 查询订单 */
-Order order = dao.findById(456);
-//更新订单
-order.setUserName("uu");
-order.setPassword("pass");
-order.setPrice("ddd");
-orderDao.save(order);
+    //取得dao
+    OrderDao dao = Factory.getDao("OrderDao");
+    /* 查询订单 */
+    Order order = dao.findById(456);
+    //更新订单
+    order.setUserName("uu");
+    order.setPassword("pass");
+    order.setPrice("ddd");
+    orderDao.save(order);
 }
 ```
 
@@ -473,17 +477,19 @@ public void demo(int a, int b, int c) {
 
 比如上例，合并条件后成为：
 
-    public void demo(int a, int b, int c) {
-        if (a > b && b > c) {
-        	doJobA();
-        }
-        if (a > b && c > b) {
-        	doJobB();
-        }
-        if (a <= b && c < b && a < c) {
-        	doJobC();
-        }
+```java
+public void demo(int a, int b, int c) {
+    if (a > b && b > c) {
+	    doJobA();
     }
+    if (a > b && c > b) {
+	    doJobB();
+    }
+    if (a <= b && c < b && a < c) {
+	    doJobC();
+    }
+}
+```
 
 如果利用return 则成为：
 
