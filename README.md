@@ -159,43 +159,45 @@ find方法在业务层尽量表达业务含义，比如 findInvalidMedicalCard()
 
 大括号的开始在代码块开始的行尾，闭合在和代码块同一缩进的行首，例如：
 
-    package com.test;
-    public class TestStyle extends SomeClass implements AppleInter, BananaInter {
+```java
+package com.test;
+public class TestStyle extends SomeClass implements AppleInter, BananaInter {
 
-    	public static final String THIS_IS_CONST = "CONST VALUE";
+    public static final String THIS_IS_CONST = "CONST VALUE";
 
-    	private static void main(String[] args) {
-    		int localVariable = 0;
+    private static void main(String[] args) {
+    	int localVariable = 0;
+    }
+
+    public void compute(String arg) {
+    	if (arg.length() > 0) {
+    		System.out.println(arg);
     	}
 
-    	public void compute(String arg) {
-    		if (arg.length() > 0) {
-    			System.out.println(arg);
-    		}
+    	for (int i = 0; i < 10; i++) {
+    		System.out.println(arg);
+    	}
 
-    		for (int i = 0; i < 10; i++) {
-    			System.out.println(arg);
-    		}
+    	while (condition) {
+    	}
 
-    		while (condition) {
-    		}
+    	do {
+    		otherMethod();
+    	} while (condition);
 
-    		do {
-    			otherMethod();
-    		} while (condition);
-
-    		switch (i) {
-                case 0:
-                    callFunction();
-                    break;
-                case 1:
-                    callFunctionb();
-                    break;
-                default:
-                break;
-    		}
+    	switch (i) {
+        case 0:
+            callFunction();
+            break;
+        case 1:
+            callFunctionb();
+            break;
+        default:
+        break;
     	}
     }
+}
+```
 
 ####2.6.2 空格的使用
 
